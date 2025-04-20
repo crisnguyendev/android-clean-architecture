@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.anhvu.dishcovery.service"
+    namespace = "com.anhvu.dishcovery.feature.recipe"
     compileSdk = 35
 
     defaultConfig {
@@ -16,19 +16,9 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
-    buildFeatures {
-        buildConfig = true
-    }
-
     buildTypes {
-        debug {
-            buildConfigField("String", "SPOONACULAR_API_KEY", "\"${properties["spoonacularApiKeyDebug"]}\"")
-            buildConfigField("String", "BASE_URL", "\"https://api.spoonacular.com/\"")
-        }
         release {
-            buildConfigField("String", "SPOONACULAR_API_KEY", "\"${properties["spoonacularApiKeyRelease"]}\"")
-            buildConfigField("String", "BASE_URL", "\"https://api.spoonacular.com/\"")
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -45,14 +35,15 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit2.converter.gson)
+    implementation(project(":domain"))
+    implementation(project(":data:service"))
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 }

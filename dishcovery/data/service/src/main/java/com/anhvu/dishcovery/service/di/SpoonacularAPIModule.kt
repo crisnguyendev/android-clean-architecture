@@ -11,10 +11,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object SpoonacularAPIModule {
-
-    @Provides
     @Singleton
-    fun provideSpoonacularAPI(retrofit: Retrofit): SpoonacularAPI {
+    @Provides
+    fun provideSpooncularAPI(retrofit: Retrofit): SpoonacularAPI {
         return retrofit.create(SpoonacularAPI::class.java)
     }
 }

@@ -44,15 +44,22 @@ android {
     }
 }
 
+ksp {
+    arg("ksp.verbose", "true")
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     implementation(libs.retrofit)
     implementation(libs.retrofit2.converter.gson)
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 }

@@ -1,4 +1,4 @@
-package com.anhvu.dishcovery.domain.model.recipe
+package com.anhvu.dishcovery.domain.recipe.model
 
 data class RecipeModel(
     val id: Int,

@@ -17,6 +17,10 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/recipe" />
+            <option value="$PROJECT_DIR$/toolkit" />
+            <option value="$PROJECT_DIR$/toolkit/analytics" />
+            <option value="$PROJECT_DIR$/toolkit/logger" />
+            <option value="$PROJECT_DIR$/uikit" />
           </set>
         </option>
       </GradleProjectSettings>

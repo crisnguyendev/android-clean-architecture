@@ -10,7 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.anhvu.dishcovery.databinding.ActivityMainBinding
-import com.anhvu.dishcovery.feature.recipe.repository.RecipeRepository
+import com.anhvu.dishcovery.domain.recipe.repository.RecipeRepository
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -43,11 +43,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         lifecycleScope.launch {
-            repository.searchRecipe(("burger")).collectLatest { recipes ->
-                recipes.forEach { recipe ->
-                    Log.d("MainActivity", "$recipe.id")
-                }
-            }
+//            repository.searchRecipe(("burger", 0, 10)).collectLatest { recipes ->
+//            recipes.forEach { recipe ->
+//                Log.d("MainActivity", "$recipe.id")
+//            }
         }
     }
 }

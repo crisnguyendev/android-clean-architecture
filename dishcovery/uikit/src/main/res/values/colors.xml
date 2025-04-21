@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="core_primary">#6200EE</color>
+    <color name="core_primary_variant">#3700B3</color>
+    <color name="core_error">#B00020</color>
+    <color name="core_surface">#FFFFFF</color>
+</resources>

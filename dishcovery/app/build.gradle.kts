@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -35,7 +38,14 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
+
+
+}
+
+ksp {
+    arg("ksp.verbose", "true")
 }
 
 dependencies {
@@ -48,7 +58,17 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.compose.runtime)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    implementation(project(":domain"))
+    implementation(project(":data:service"))
+    implementation(project(":feature:recipe"))
 }

@@ -65,10 +65,18 @@ dependencies {
 
     implementation(libs.compose.runtime)
 
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material3)
+    implementation(libs.nav.compose)
+    implementation(libs.paging.compose)
+
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation)
     ksp(libs.hilt.compiler)
 
     implementation(project(":domain"))
+    implementation(project(":uikit"))
     implementation(project(":data:service"))
     implementation(project(":feature:recipe"))
 }

@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.anhvu.dishcovery.uikit
 
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,7 +13,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import java.util.UUID
 
 @Composable
 fun <T : Any> PagingList(
@@ -31,18 +32,17 @@ fun <T : Any> PagingList(
                         .fillMaxWidth()
                         .padding(dimensionResource(R.dimen.core_standard_padding)),
                     textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyLarge
                 )
             }
         }
 
-//        items(
-//            items = pagingItems,
-//            key = { item -> item?.hashCode() ?: UUID.randomUUID().toString() }, // Adjust key if T has a unique ID
-//            contentType = { "item" }
-//        ) { item ->
-//            item?.let { itemContent(it) }
-//        }
+        items(
+            count = pagingItems.itemCount,
+            key = { index -> pagingItems.peek(index)?.hashCode() ?: index }
+        ) { index ->
+            pagingItems[index]?.let { itemContent(it) }
+        }
 
         item {
             if (pagingItems.loadState.append is LoadState.Loading) {

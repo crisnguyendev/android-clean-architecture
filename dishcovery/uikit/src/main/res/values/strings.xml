@@ -8,4 +8,8 @@
     <!-- Error Strings -->
     <string name="core_error_network">Network error. Please try again.</string>
     <string name="core_error_unknown">An unexpected error occurred.</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
